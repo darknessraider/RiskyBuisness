@@ -1,1 +1,9 @@
-<h1>Login Page</h1>
+<form action="/login" method="post">
+    <label for="your_name">Username: </label>
+    <input id="Username" type="text" name="username" value="{{ current_username }}">
+    <br>
+    <label for="your_name">Password: </label>
+    <input id="Password" type="text" name="password" value="{{ current_password }}">
+    <br>
+    <input type="submit" value="OK">
+</form>
