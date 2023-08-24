@@ -25,17 +25,25 @@
 
         <br><br>
 
-        {% load crispy_forms_tags %}
-
         <div style="width: 20%; border-radius: 10px; border-color: rgb(185, 0, 0); border: 2px; border-style: solid;" class="text-center center-block">
 
             <br>
+
             <form action="/login/" method="post" style="width: 90%;" class="text-center center-block">
                 {% csrf_token %}
-                {% crispy form %}
-                <input class="btn btn-default" type="submit" value="Login">
+
+                <label for="username">Username</label>
+                {{ form.username }}
+
+                <br>
+
+                <label for="password">Password</label>
+                {{ form.password }}
+
+                <br>
+
+                <input class="btn btn-success" type="submit" value="Login" style="width: 90%;">
             </form>
-            <br><br>
 
         </div>
 

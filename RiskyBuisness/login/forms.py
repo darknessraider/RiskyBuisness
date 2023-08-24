@@ -1,6 +1,4 @@
 from django import forms
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
 
 class LoginForm(forms.Form):
 
@@ -14,4 +12,10 @@ class LoginForm(forms.Form):
         label = "Password",
         max_length = 80,
         required = True,
+        widget=forms.PasswordInput
     )
+
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
