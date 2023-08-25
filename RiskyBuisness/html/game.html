@@ -15,10 +15,16 @@
                 <a class="navbar-brand" href="#">Risky Buisness</a>
               </div>
               <ul class="nav navbar-nav">
+
                 <li class=""><a href="/">Home</a></li>
                 <li class="active"><a href="/game/">Game</a></li>
+                {% if username %}
+                <li class=""><a href="/profile/">{{ username }}</a></li>
+                {% else %}
                 <li class=""><a href="/login/">Login</a></li>
                 <li class=""><a href="/login/signup/">Sign Up</a></li>
+                {% endif %}
+                
             </ul>
             </div>
         </nav>
