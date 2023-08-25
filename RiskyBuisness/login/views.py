@@ -40,8 +40,8 @@ def signup_show(request):
             print(user)
 
             if not user:
-                #request.session["username"] = form.cleaned_data['username']
-                #request.session["password"] = form.cleaned_data['password']
+                request.session["username"] = form.cleaned_data['username']
+                request.session["password"] = form.cleaned_data['password']
                 form.save()
                 return HttpResponseRedirect('/')
             
