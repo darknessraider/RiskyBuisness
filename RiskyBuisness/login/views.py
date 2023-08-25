@@ -25,3 +25,28 @@ def login_show(request):
         form = LoginForm()
 
     return render(request, "login.html", {"form": form})
+
+def signup_show(request):
+
+    if request.method == "POST":
+        
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            form.cleaned_data
+            
+            user = Member.objects.filter(username=form.cleaned_data['username']).values()
+
+            print(user)
+
+            if not user:
+                #request.session["username"] = form.cleaned_data['username']
+                #request.session["password"] = form.cleaned_data['password']
+                return HttpResponseRedirect('/')
+            
+            else:
+                return render(request, "signup.html", {"msg": 'Username is already in use.', "form": form})
+
+    else:
+        form = LoginForm()
+
+    return render(request, "signup.html", {"form": form})
