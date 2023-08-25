@@ -29,6 +29,8 @@ def login_show(request):
 
 def signup_show(request):
 
+    bootstrapForm = LoginForm()
+
     if request.method == "POST":
         
         form = MemberForm(request.POST)
@@ -46,9 +48,6 @@ def signup_show(request):
                 return HttpResponseRedirect('/')
             
             else:
-                return render(request, "signup.html", {"msg": 'Username is already in use.', "form": form})
+                return render(request, "signup.html", {"msg": 'Username is already in use.', "form": bootstrapForm})
 
-    else:
-        form = LoginForm()
-
-    return render(request, "signup.html", {"form": form})
+    return render(request, "signup.html", {"form": bootstrapForm})
