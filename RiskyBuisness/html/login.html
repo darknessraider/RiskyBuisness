@@ -25,6 +25,12 @@
 
         <br><br>
 
+        {% if msg %}
+        <div class="alert alert-danger text-center center-block" style="width: 20%; border-radius: 10px; border: 1px; border-style: solid; border-color: rgb(181, 181, 181);">
+            {{ msg }}
+        </div>
+        {% endif %}
+
         <div style="width: 20%; border-radius: 10px; border: 1px; border-style: solid; border-color: rgb(181, 181, 181); background-color: whitesmoke;" class="text-center center-block">
 
             <br>
