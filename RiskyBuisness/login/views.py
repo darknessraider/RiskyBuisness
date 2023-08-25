@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import LoginForm
 from django.http import HttpResponseRedirect
 from .models import Member
+from .forms import MemberForm
 
 def login_show(request):
 
@@ -30,7 +31,7 @@ def signup_show(request):
 
     if request.method == "POST":
         
-        form = LoginForm(request.POST)
+        form = MemberForm(request.POST)
         if form.is_valid():
             form.cleaned_data
             
@@ -41,6 +42,7 @@ def signup_show(request):
             if not user:
                 #request.session["username"] = form.cleaned_data['username']
                 #request.session["password"] = form.cleaned_data['password']
+                form.save()
                 return HttpResponseRedirect('/')
             
             else:
