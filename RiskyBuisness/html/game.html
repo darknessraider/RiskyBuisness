@@ -4,6 +4,7 @@
         <title>Risky Buisness</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel = "stylesheet" type="text/css" href = "/static/game/css/main.css" />
     </head>
 
     <body>
@@ -29,17 +30,15 @@
             </div>
         </nav>
 
-        {% if not username %}
-        <div class="text-center"style="background-color: rgb(242,222,222); width: 100%; border: 1px; border-style: solid; border-color: rgb(181, 181, 181);">
-            <b>WARNING: You are not logged in. Data will not save unless you log in. Please <a href="/login">login</a> or <a href="/login/signup">sign up</a>.</b>
-        </div>
-        {% endif %}
-
         <br><br>
 
-        <!-- Description -->
+        <!-- Main Body -->
         <div>
             
+            <div class="text-center center-block">
+                <button class="btn" id="clicker">Click me!</button>
+            </div>
+
         </div>
 
     </body>
