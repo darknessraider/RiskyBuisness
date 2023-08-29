@@ -15,19 +15,39 @@
                 <a class="navbar-brand" href="#">Risky Buisness</a>
               </div>
               <ul class="nav navbar-nav">
+                
                 <li class="active"><a href="/">Home</a></li>
                 <li class=""><a href="/game/">Game</a></li>
+                {% if username %}
+                <li class=""><a href="/profile/">{{ username }}</a></li>
+                {% else %}
                 <li class=""><a href="/login/">Login</a></li>
                 <li class=""><a href="/login/signup/">Sign Up</a></li>
+                {% endif %}
+
             </ul>
             </div>
         </nav>
 
+        {% if not username %}
+        <div class="text-center"style="background-color: rgb(242,222,222); width: 100%; border: 1px; border-style: solid; border-color: rgb(181, 181, 181);">
+            <b>WARNING: You are not logged in. Data will not save unless you log in. Please <a href="/login">login</a> or <a href="/login/signup">sign up</a>.</b>
+        </div>
+        {% endif %}
+
         <br><br>
 
         <!-- Description -->
-        <div>
-            
+        <div style="padding-left: 4%;">
+            <p>
+                <img src="https://picsum.photos/300" style="float: left; margin-right:15px; border-style: solid; border-width: 5px; border-radius: 20px;">
+
+                <div style="font-size: 30px;">
+                    Risky Business is a thrilling and immersive strategy game that places you in the heart of the underground world of illegal business ventures. In this high-stakes game, you'll step into the shoes of an ambitious entrepreneur with a knack for risk-taking and resource management. Your ultimate goal? To build an empire that operates in the shadows, all while avoiding the watchful eyes of law enforcement and rival competitors.
+                </div>
+
+            </p>
+
         </div>
 
     </body>
