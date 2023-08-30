@@ -4,9 +4,39 @@
     height: 200px;
     border-style: solid;
     border-color: black;
+    position:absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 200px;
 }
 
 #clicker:active {
     -webkit-transform: scale3d(0.95, 0.95, 0.95);
     transform: scale3d(0.95);
+}
+
+#factories {
+    position:absolute;
+    left: 10px;
+}
+
+#factories button:active{
+    -webkit-transform: scale3d(0.95, 0.95, 0.95);
+    transform: scale3d(0.95);
+}
+
+#factories button{
+    width: 180px;
+    height: 60px;
+}
+
+#factories button img{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
 }
