@@ -21,7 +21,7 @@ def increment_balance(request):
             player = Player.objects.create(balance=1, member=member)
             player.save()
         print(member.player.balance)
-        return JsonResponse({'status': 'Valid request'})
+        return JsonResponse({'balance': member.player.balance})
     else:
         return JsonResponse({'status': 'Invalid request'})
 
