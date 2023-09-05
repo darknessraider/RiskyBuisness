@@ -9,9 +9,6 @@
 #clicker:active {
     -webkit-transform: scale3d(0.95, 0.95, 0.95);
     transform: scale3d(0.95);
-<<<<<<< Updated upstream
-}
-=======
 }
 
 #factories {
@@ -44,5 +41,4 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-  }
->>>>>>> Stashed changes
+}
