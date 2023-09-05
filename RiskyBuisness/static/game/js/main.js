@@ -16,7 +16,7 @@ function getCookie(name) {
 
 function postData(string) {
 
-    fetch("/game/", {
+    fetch("/inputapi/increment_balance", {
         method: "POST",
         credentials: "same-origin",
         headers: {

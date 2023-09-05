@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'login',
     "crispy_forms",
     "crispy_bootstrap4",
+    "inputapi",
+    "player",
 ]
 
 MIDDLEWARE = [
