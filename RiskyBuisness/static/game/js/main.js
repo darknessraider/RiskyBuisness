@@ -31,3 +31,13 @@ function postData(string) {
     });
 
 }
+
+function postIfClicked(id, data) {
+  $(id).click(function(){
+    postData(data);
+  })
+}
+
+$(document).ready(function(){
+  postIfClicked("#clicker")
+})
