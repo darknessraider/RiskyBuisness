@@ -15,6 +15,7 @@ function getCookie(name) {
 }
 
 function postData(string) {
+  if (!string) {string = "none"}
   fetch("/inputapi/increment_balance", {
     method: "POST",
     credentials: "same-origin",

@@ -15,6 +15,7 @@ def check_valid(request):
 
 def increment_balance(request):
     if check_valid(request):
+        print(json.loads(request.body.decode()))
         payload = json.loads(request.body.decode())["payload"]
         member = Member.objects.filter(username=request.session["username"])[0]
         if not payload == "doNotUpBalance":
