@@ -9,4 +9,40 @@
 #clicker:active {
     -webkit-transform: scale3d(0.95, 0.95, 0.95);
     transform: scale3d(0.95);
+<<<<<<< Updated upstream
 }
+=======
+}
+
+#factories {
+    position:absolute;
+    left: 10px;
+}
+
+#factories button:active{
+    -webkit-transform: scale3d(0.95, 0.95, 0.95);
+    transform: scale3d(0.95);
+}
+
+#factories button{
+    width: 180px;
+    height: 60px;
+}
+
+#factories button img{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+.unselectable {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+>>>>>>> Stashed changes
