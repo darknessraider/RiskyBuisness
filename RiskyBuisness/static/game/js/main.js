@@ -15,21 +15,20 @@ function getCookie(name) {
 }
 
 function postData(string) {
-
-    fetch("/inputapi/increment_balance", {
-        method: "POST",
-        credentials: "same-origin",
-        headers: {
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRFToken": getCookie("csrftoken"),
-        },
-        body: JSON.stringify({payload: string})
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-    });
-
+  fetch("/inputapi/increment_balance", {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRFToken": getCookie("csrftoken"),
+    },
+    body: JSON.stringify({payload: string})
+  })
+  .then(response => response.json())
+  .then(data => {
+    $("#balance").text(data.balance)
+    console.log(data)
+  })
 }
 
 function postIfClicked(id, data) {
@@ -37,6 +36,10 @@ function postIfClicked(id, data) {
     postData(data);
   })
 }
+
+$(document).ready(function(){
+  $("#balance").text('0')
+})
 
 $(document).ready(function(){
   postIfClicked("#clicker")
