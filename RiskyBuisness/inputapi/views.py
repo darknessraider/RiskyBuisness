@@ -2,6 +2,7 @@ from django.shortcuts import render
 from player.models import Player
 from django.http import JsonResponse
 from login.models import Member
+import json
 
 def check_valid(request):
     is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest' 
@@ -14,13 +15,15 @@ def check_valid(request):
 
 def increment_balance(request):
     if check_valid(request):
+        payload = json.loads(request.body.decode())["payload"]
         member = Member.objects.filter(username=request.session["username"])[0]
-        try:
-            member.player.increment_balance()
-        except:
-            player = Player.objects.create(balance=1, member=member)
-            player.save()
-        print(member.player.balance)
+        if not payload == "doNotUpBalance":
+            try:
+                member.player.increment_balance()
+            except:
+                player = Player.objects.create(balance=1, member=member)
+                player.save()
+            print(member.player.balance)
         return JsonResponse({'balance': member.player.balance})
     else:
         return JsonResponse({'status': 'Invalid request'})

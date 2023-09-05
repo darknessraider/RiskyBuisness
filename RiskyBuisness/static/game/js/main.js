@@ -37,9 +37,7 @@ function postIfClicked(id, data) {
   })
 }
 
-$(document).ready(function(){
-  $("#balance").text('0')
-})
+postData("doNotUpBalance")
 
 $(document).ready(function(){
   postIfClicked("#clicker")
