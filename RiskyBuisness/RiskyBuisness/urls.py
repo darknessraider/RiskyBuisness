@@ -24,4 +24,5 @@ urlpatterns = [
     path('game/', include("game.urls")),
     path('profile/', include("profile.urls")),
     path('inputapi/', include("inputapi.urls")),
+    path('outputapi/', include("outputapi.urls")),
 ]

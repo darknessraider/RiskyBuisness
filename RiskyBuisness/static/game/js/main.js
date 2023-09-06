@@ -26,15 +26,23 @@ function postData(string) {
     body: JSON.stringify({payload: string})
   })
   .then(response => response.json())
-  .then(data => {
-    $("#balance").text(data.balance)
-    console.log(data)
-  })
+  .then(json => {})
 }
+
+function getSetBalance() {
+  $.get("/outputapi/get_balance",
+    function (data, textStatus, jqXHR) {
+      $("#balance").text(data.balance)
+    },
+  )
+}
+
+getSetBalance()
 
 function postIfClicked(id, data) {
   $(id).click(function(){
     postData(data);
+    getSetBalance()
   })
 }
 
