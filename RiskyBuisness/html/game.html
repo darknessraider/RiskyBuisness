@@ -4,6 +4,7 @@
         <title>Risky Buisness</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         {% load static %}
         <link rel = "stylesheet" type="text/css" href = "{% static 'game/css/main.css' %}" />
         <script src="{% static 'game/js/main.js' %}"></script>
@@ -32,13 +33,17 @@
             </div>
         </nav>
 
-        <br><br>
+        <!-- Balance -->
+
+        <div class="text-center center-block">
+            <h1>Balance: <span id="balance"></span></h1>
+        </div>
 
         <!-- Main Body -->
         <div>
             
             <div class="text-center center-block">
-                <button class="btn" id="clicker" onclick="postData('Button Clicked!')">Click me!</button>
+                <button class="btn" id="clicker">Click me!</button>
             </div>
 
             <div class="pull-left" id="factories">

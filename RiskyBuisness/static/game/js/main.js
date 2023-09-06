@@ -15,19 +15,31 @@ function getCookie(name) {
 }
 
 function postData(string) {
-
-    fetch("/game/", {
-        method: "POST",
-        credentials: "same-origin",
-        headers: {
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRFToken": getCookie("csrftoken"),
-        },
-        body: JSON.stringify({payload: string})
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-    });
-
+  if (!string) {string = "none"}
+  fetch("/inputapi/increment_balance", {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRFToken": getCookie("csrftoken"),
+    },
+    body: JSON.stringify({payload: string})
+  })
+  .then(response => response.json())
+  .then(data => {
+    $("#balance").text(data.balance)
+    console.log(data)
+  })
 }
+
+function postIfClicked(id, data) {
+  $(id).click(function(){
+    postData(data);
+  })
+}
+
+postData("doNotUpBalance")
+
+$(document).ready(function(){
+  postIfClicked("#clicker")
+})
