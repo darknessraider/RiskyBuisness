@@ -38,8 +38,6 @@ function postIfClicked(id, data) {
   })
 }
 
-postData("doNotUpBalance")
-
 $(document).ready(function(){
   postIfClicked("#clicker")
 })
