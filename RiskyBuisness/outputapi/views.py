@@ -7,5 +7,10 @@ import json
 
 def get_balance(request):
     member = Member.objects.filter(username=request.session["username"])[0]
-    print(member.player.balance)
-    return JsonResponse({'balance': member.player.balance})
+
+    try:
+        return JsonResponse({'balance': member.player.balance})
+    except:
+        player = Player.objects.create(balance=0, member=member)
+        player.save()
+        return JsonResponse({'balance': member.player.balance})
