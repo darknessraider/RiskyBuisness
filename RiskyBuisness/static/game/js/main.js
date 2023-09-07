@@ -14,9 +14,9 @@ function getCookie(name) {
     return cookieValue;
 }
 
-function postData(string) {
+async function postData(string) {
   if (!string) {string = "none"}
-  fetch("/inputapi/increment_balance", {
+  await fetch("/inputapi/increment_balance", {
     method: "POST",
     credentials: "same-origin",
     headers: {
@@ -26,20 +26,23 @@ function postData(string) {
     body: JSON.stringify({payload: string})
   })
   .then(response => response.json())
-  .then(data => {
-    $("#balance").text(data.balance)
-    console.log(data)
-  })
+  .then(json => {console.log("Sent Post")})
 }
 
-function postIfClicked(id, data) {
-  $(id).click(function(){
-    postData(data);
-  })
+async function getSetBalance() {
+  await $.get("/outputapi/get_balance", function (data, textStatus, jqXHR) {
+      $("#balance").text(data.balance)
+      console.log("Balance Got")
+    },
+  )
 }
 
-postData("doNotUpBalance")
+getSetBalance()
 
 $(document).ready(function(){
-  postIfClicked("#clicker")
+  $("#clicker").click(async function(){
+    await postData();
+    await getSetBalance()
+    console.log("Clicked")
+  })
 })
